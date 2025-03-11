@@ -3,16 +3,19 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark">
-    <meta name="google-site-verification" content="i0qQRaR9OA3tSz_9tDocdcXGY27Ox_cy4FrvTHD2C_0" />
+    <meta name="google-site-verification" content="i0qQRaR9OA3tSz_9tDocdcXGY27Ox_cy4FrvTHD2C_0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     
       <meta name="description" content="aieng-template Python API documentation">
-    <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="API Reference" href="api.html" /><link rel="prev" title="Vector AI Engineering template (uv edition) repository" href="index.html" />
 
     <meta name="generator" content="sphinx-8.1.3, furo 2024.08.06"/>
 
     
-    <meta name="msvalidate.01" content="8D2A5032F006424CAF54C0DDCD16F666" /><title>Python Module Index - Vector AI Engineering template repository</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <meta name="msvalidate.01" content="8D2A5032F006424CAF54C0DDCD16F666" />
+      
+        <title>Building Image for Singularity - Vector AI Engineering TRL References</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -189,7 +192,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Vector AI Engineering template repository</div></a>
+      <a href="index.html"><div class="brand">Vector AI Engineering TRL References</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -212,7 +215,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">Vector AI Engineering template repository</span>
+  <span class="sidebar-brand-text">Vector AI Engineering TRL References</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -220,8 +223,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
-<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+  <ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Building Image for Singularity</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="reference/api/aieng_template_uv.html">aieng_template_uv package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of aieng_template_uv package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="reference/api/aieng_template_uv.bar.html">aieng_template_uv.bar module</a></li>
@@ -249,7 +252,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -263,46 +267,44 @@
           </label>
         </div>
         <article role="main">
-          
-<section class="domainindex-section">
-  <h1>Python Module Index</h1>
-  <div class="domainindex-jumpbox"><a href="#cap-a"><strong>a</strong></a></div>
+          <section id="building-image-for-singularity">
+<span id="user-guide"></span><h1>Building Image for Singularity<a class="headerlink" href="#building-image-for-singularity" title="Link to this heading">¶</a></h1>
+<p>If the cluster is running an outdated Linux distro, some of the pre-built wheels might not be compatible.
+As a workaround, leverage Singularity to run a more modern version of Linux within a containerized environment.</p>
+<p>Below are instructions for building the image with uv, vLLM, TRL, and Unsloth pre-installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IMAGE_NAME</span><span class="o">=</span>unsloth-vllm-trl
+<span class="nv">REVISION</span><span class="o">=</span><span class="m">0</span>.1.0
+sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>--tag<span class="w"> </span><span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">REVISION</span><span class="si">}</span><span class="w"> </span>.
+sudo<span class="w"> </span>singularity<span class="w"> </span>build<span class="w"> </span>--nv<span class="w"> </span><span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span>_<span class="si">${</span><span class="nv">REVISION</span><span class="si">}</span>.sif<span class="w"> </span>docker-daemon://<span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">REVISION</span><span class="si">}</span>
+</pre></div>
+</div>
 </section>
-<table class="domainindex-table">
-  <tr class="pcap">
-    <td></td><td>&#160;</td><td></td>
-  </tr>
-  <tr class="cap" id="cap-a">
-    <td></td><td><strong>a</strong></td><td></td>
-  </tr>
-  <tr>
-    <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-    <td>
-        <a href="reference/api/aieng_template_uv.html#module-aieng_template_uv"><code class="xref">aieng_template_uv</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="reference/api/aieng_template_uv.bar.html#module-aieng_template_uv.bar"><code class="xref">aieng_template_uv.bar</code></a></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="reference/api/aieng_template_uv.foo.html#module-aieng_template_uv.foo"><code class="xref">aieng_template_uv.foo</code></a></td><td>
-    <em></em></td>
-  </tr>
-</table>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">API Reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -318,7 +320,7 @@
           </div>
           <div class="right-details">
             <div class="icons">
-              <a class="muted-link " href="https://github.com/VectorInstitute/aieng-template-uv" aria-label="GitHub">
+              <a class="muted-link " href="https://github.com/vectorInstitute/vector-trl-references" aria-label="GitHub">
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
                 </svg>
